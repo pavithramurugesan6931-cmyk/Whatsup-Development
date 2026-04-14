@@ -1,0 +1,31 @@
+whatup code
+
+package testNG;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Dependency {
+      WebDriver driver;
+      long starttime;
+      long endtime;
+      
+	@BeforeSuite //@Test(priority=0)   @Test(dependencyOnMethods="highschool")
+	 public void openGoogle() {
+		
+		 starttime=System.currentTimeMillis();
+		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Victus Pro\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64");
+		 WebDriverManager.chromedriver().setup();
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.google.com");
+		   driver.quit();
+		   
+	      endtime=System.currentTimeMillis();
+		   long totaltimes=endtime-starttime;
+		   
